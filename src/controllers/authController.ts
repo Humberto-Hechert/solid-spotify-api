@@ -12,7 +12,7 @@ class AuthController {
     try {
       const { clientId, clientSecret} = req.body;
       const accessToken = await this.authService.getToken(clientId, clientSecret);
-      res.json({ access_token: accessToken });
+      res.status(200).json({ access_token: accessToken });
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
